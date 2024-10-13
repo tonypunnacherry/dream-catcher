@@ -1,7 +1,7 @@
 import { BedrockRuntimeClient, InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime";
 
-const SECRET = "Y8PttyylMeHnvePRQStjcUFsLMidUItvtpfzbZmR";
-const ACCESS = "AKIAVVZOOFGQH5QTNRVB";
+const SECRET = "[ENTER YOUR SECRET HERE]";
+const ACCESS = "[ENTER YOUR SECRET HERE]";
 
 // For text generation
 const client = new BedrockRuntimeClient({
