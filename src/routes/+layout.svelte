@@ -1,14 +1,14 @@
 <script>
     import "../app.css";
     import { AppState } from "$lib/stores/app.svelte";
-    const appTitle = $AppState.appDetails.title;
+    const { title } = $AppState.appDetails;
 </script>
 
 <img alt="background" id="bg" src="bg.png"/>
 <img alt="logo" id="logo" src="logo.png"/>
 <div class="party-header">
   <h1>
-    {appTitle}
+    {title}
   </h1>
 </div>
 <nav>

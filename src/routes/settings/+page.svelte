@@ -1,10 +1,10 @@
 <script lang="ts">
     import { AppState } from "$lib/stores/app.svelte";
-    const appTitle = $AppState.appDetails.title;
+    const {title} = $AppState.appDetails;
 </script>
 
 <svelte:head>
-    <title>{appTitle}</title>
+    <title>{title}</title>
 </svelte:head>
 
 <main class="party-body">

@@ -2,12 +2,12 @@
     export let data;
     import { AppState } from "$lib/stores/app.svelte";
     import { page } from "$app/stores";
-    const appTitle = $AppState.appDetails.title;
+    const {title} = $AppState.appDetails;
     const dream = $AppState.album[$page.params.dream];
 </script>
 
 <svelte:head>
-    <title>{appTitle}</title>
+    <title>{title}</title>
 </svelte:head>
 
 <main class="party-body">

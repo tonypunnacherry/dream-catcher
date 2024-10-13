@@ -10,11 +10,9 @@
   import definition from "../lib/stores/definition.json";
   import { goto } from '$app/navigation';
 
-  const appTitle = $AppState.appDetails.title;
-  $: {
-    $AppState.widgets = [...definition.result.data.definition.widgets];
-    $AppState.readyToGenerate = false;
-  }
+  const {title} = $AppState.appDetails;
+  $AppState.widgets = [...definition.result.data.definition.widgets];
+  $AppState.readyToGenerate = false;
 
   function saveDream() {
     const temp = $AppState.album;
@@ -30,7 +28,7 @@
 </script>
 
 <svelte:head>
-  <title>{appTitle}</title>
+  <title>{title}</title>
 </svelte:head>
 
 <main class="party-body">
