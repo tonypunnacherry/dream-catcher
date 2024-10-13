@@ -4,15 +4,15 @@ import { create } from "domain";
 const client = new BedrockRuntimeClient({
     region: 'us-east-2',
     credentials: {
-        secretAccessKey: "Y8PttyylMeHnvePRQStjcUFsLMidUItvtpfzbZmR",
-		accessKeyId: "AKIAVVZOOFGQH5QTNRVB"
+        secretAccessKey: "INSERT HERE",
+		accessKeyId: "INSERT HERE"
     }
 });
 const client2 = new BedrockRuntimeClient({
     region: 'us-west-2',
     credentials: {
-        secretAccessKey: "Y8PttyylMeHnvePRQStjcUFsLMidUItvtpfzbZmR",
-		accessKeyId: "AKIAVVZOOFGQH5QTNRVB"
+        secretAccessKey: "INSERT HERE",
+		accessKeyId: "INSERT HERE"
     }
 });
 const textDecoder = new TextDecoder("utf-8");
