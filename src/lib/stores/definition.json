@@ -1,0 +1,131 @@
+{
+    "result": {
+        "data": {
+            "appId": "CyCltz26P",
+            "version": 10,
+            "definition": {
+                "version": 1,
+                "widgets": [
+                    {
+                        "x": 0,
+                        "y": 0,
+                        "type": "static-text",
+                        "id": "dream-tracker-title",
+                        "title": "about",
+                        "width": 12,
+                        "height": 4,
+                        "content": "This app allows you to track your dreams, analyze their content, visualize them, and explore potential influences and connections to your waking life."
+                    },
+                    {
+                        "x": 0,
+                        "y": 4,
+                        "type": "text-input",
+                        "id": "dream-description-input",
+                        "title": "Dream Description",
+                        "width": 12,
+                        "height": 6,
+                        "placeholder": "I dreamed of..."
+                    },
+                    {
+                        "x": 0,
+                        "y": 10,
+                        "type": "inferred-text",
+                        "id": "dream-summary-output",
+                        "title": "here’s what your dream might mean...",
+                        "width": 6,
+                        "height": 8,
+                        "prompt": "Analyze the potential symbolism and themes from the dream description: [Dream Description]",
+                        "parameters": {
+                            "model": "bedrock-anthropic.claude-3.5-sonnet",
+                            "temperature": 0
+                        }
+                    },
+                    {
+                        "x": 6,
+                        "y": 10,
+                        "type": "image",
+                        "id": "dream-visual-output",
+                        "title": "dream it, see it",
+                        "width": 6,
+                        "height": 8,
+                        "parameters": {
+                            "model": "bedrock-stability.stable-image-core-v1-0"
+                        },
+                        "imageDescription": "Create a surreal visualization depicting the main events and imagery from [Dream Description]"
+                    },
+                    {
+                        "x": 0,
+                        "y": 18,
+                        "type": "inferred-text",
+                        "id": "dream-story-output",
+                        "title": "your dream - reimagined",
+                        "width": 12,
+                        "height": 8,
+                        "prompt": "Expand the dream events into a short fictional story: [Dream Description]",
+                        "parameters": {
+                            "model": "bedrock-anthropic.claude-3.5-sonnet",
+                            "temperature": 0
+                        }
+                    },
+                    {
+                        "x": 0,
+                        "y": 26,
+                        "type": "inferred-text",
+                        "id": "dream-influence-output",
+                        "title": "possible influences",
+                        "width": 6,
+                        "height": 8,
+                        "prompt": "Based on the dream description [Dream Description], search the internet to find any movies, TV shows, books, or games the user may have been exposed to that could have influenced the dream imagery or narrative. Summarize the relevant potential influences.",
+                        "parameters": {
+                            "model": "bedrock-anthropic.claude-3.5-sonnet",
+                            "temperature": 0
+                        }
+                    },
+                    {
+                        "x": 6,
+                        "y": 26,
+                        "type": "text-input",
+                        "id": "dream-notes-input",
+                        "title": "notes",
+                        "width": 6,
+                        "height": 4,
+                        "placeholder": "Enter any additional notes or analysis about your dream..."
+                    },
+                    {
+                        "x": 6,
+                        "y": 30,
+                        "type": "text-input",
+                        "id": "dream-mood-input",
+                        "title": "how do you feel today?",
+                        "width": 6,
+                        "height": 4,
+                        "placeholder": "How are you feeling today?"
+                    },
+                    {
+                        "x": 0,
+                        "y": 34,
+                        "type": "chat",
+                        "id": "dream-interpretation-output",
+                        "title": "chat with our dream interpreter",
+                        "width": 12,
+                        "height": 12,
+                        "parameters": {
+                            "model": "bedrock-anthropic.claude-3.5-sonnet",
+                            "temperature": 0
+                        },
+                        "placeholder": "Ask me anything about interpreting your dream...",
+                        "initialUserMessage": "Hi, I had this dream last night: [Dream Description]. And I'm feeling [Mood Today]. Can you provide any insights into what my dream may symbolize or mean in relation to my waking life?",
+                        "initialAssistantMessage": "Sure, I'd be happy to try interpreting your dream based on the details provided. Dreams can tap into our subconscious thoughts, emotions and experiences in fascinating ways. Let's explore what yours could represent..."
+                    }
+                ]
+            },
+            "creationDate": "2024-10-12T23:52:27.313Z",
+            "title": "DreamCatcher: Your Personalized Dream Journey",
+            "isPublic": true,
+            "description": "A personalized dream journaling and analysis app that helps users understand their subconscious through dream tracking, visualization, story generation, and exploration of potential influences.",
+            "builderPrompt": "Create a website where users can track their dreams on a daily basis. AI can analyze the dreams, visualize the dreams, create the dream into a longer story, and also search the internet to check if anything the user has watched or seen could have influenced their dream. In addition, users can take notes on their dreams and also track their moods over time in relation to their dreams. The app can analyze correlations between their emotional states and dream content.",
+            "shareLevel": "public",
+            "username": "ahanaaroy"
+        }
+    }
+}
