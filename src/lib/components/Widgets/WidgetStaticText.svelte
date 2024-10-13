@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { AppState } from "$lib/stores/appv2.svelte";
+  import { AppState } from "$lib/stores/app.svelte";
 
   import { parse } from 'marked';
   

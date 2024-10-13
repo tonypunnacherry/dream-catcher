@@ -2,5 +2,6 @@
     "static-text": "WidgetStaticText",
     "text-input": "WidgetUserInput",
     "inferred-text": "WidgetTextGeneration",
-    "image": "WidgetImageGeneration"
+    "image": "WidgetImageGeneration",
+    "emoji-input": "WidgetEmojiInput"
 }

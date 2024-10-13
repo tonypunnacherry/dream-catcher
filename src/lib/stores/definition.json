@@ -7,6 +7,7 @@
                 "version": 1,
                 "widgets": [
                     {
+                        "required": false,
                         "x": 0,
                         "y": 0,
                         "type": "static-text",
@@ -17,16 +18,29 @@
                         "content": "This app allows you to track your dreams, analyze their content, visualize them, and explore potential influences and connections to your waking life."
                     },
                     {
+                        "required": true,
                         "x": 0,
                         "y": 4,
                         "type": "text-input",
                         "id": "dream-description-input",
-                        "title": "Dream Description",
+                        "title": "what did you dream of last night?",
                         "width": 12,
                         "height": 6,
                         "placeholder": "I dreamed of..."
                     },
                     {
+                        "required": true,
+                        "x": 6,
+                        "y": 30,
+                        "type": "emoji-input",
+                        "id": "dream-mood-input",
+                        "title": "how do you feel today?",
+                        "width": 6,
+                        "height": 4,
+                        "placeholder": "How are you feeling today?"
+                    },
+                    {
+                        "required": true,
                         "x": 0,
                         "y": 10,
                         "type": "inferred-text",
@@ -34,13 +48,14 @@
                         "title": "here’s what your dream might mean...",
                         "width": 6,
                         "height": 8,
-                        "prompt": "Analyze the potential symbolism and themes from the dream description: [Dream Description]",
+                        "prompt": "Analyze the potential symbolism and themes from the dream description: [what did you dream of last night?]. Keep this response brief.",
                         "parameters": {
                             "model": "bedrock-anthropic.claude-3.5-sonnet",
                             "temperature": 0
                         }
                     },
                     {
+                        "required": true,
                         "x": 6,
                         "y": 10,
                         "type": "image",
@@ -51,9 +66,10 @@
                         "parameters": {
                             "model": "bedrock-stability.stable-image-core-v1-0"
                         },
-                        "imageDescription": "Create a surreal visualization depicting the main events and imagery from [Dream Description]"
+                        "imageDescription": "Create a surreal visualization depicting the main events and imagery from [what did you dream of last night?]"
                     },
                     {
+                        "required": true,
                         "x": 0,
                         "y": 18,
                         "type": "inferred-text",
@@ -61,13 +77,14 @@
                         "title": "your dream - reimagined",
                         "width": 12,
                         "height": 8,
-                        "prompt": "Expand the dream events into a short fictional story: [Dream Description]",
+                        "prompt": "Expand the dream events into a short fictional story: [what did you dream of last night?]",
                         "parameters": {
                             "model": "bedrock-anthropic.claude-3.5-sonnet",
                             "temperature": 0
                         }
                     },
                     {
+                        "required": true,
                         "x": 0,
                         "y": 26,
                         "type": "inferred-text",
@@ -75,13 +92,14 @@
                         "title": "possible influences",
                         "width": 6,
                         "height": 8,
-                        "prompt": "Based on the dream description [Dream Description], search the internet to find any movies, TV shows, books, or games the user may have been exposed to that could have influenced the dream imagery or narrative. Summarize the relevant potential influences.",
+                        "prompt": "Based on the dream description [what did you dream of last night?], search the internet to find any movies, TV shows, books, games, or even potential real life experiences that the user may have been exposed to that could have influenced the dream imagery or narrative. Summarize the relevant potential influences.",
                         "parameters": {
                             "model": "bedrock-anthropic.claude-3.5-sonnet",
                             "temperature": 0
                         }
                     },
                     {
+                        "required": false,
                         "x": 6,
                         "y": 26,
                         "type": "text-input",
@@ -92,16 +110,7 @@
                         "placeholder": "Enter any additional notes or analysis about your dream..."
                     },
                     {
-                        "x": 6,
-                        "y": 30,
-                        "type": "text-input",
-                        "id": "dream-mood-input",
-                        "title": "how do you feel today?",
-                        "width": 6,
-                        "height": 4,
-                        "placeholder": "How are you feeling today?"
-                    },
-                    {
+                        "required": false,
                         "x": 0,
                         "y": 34,
                         "type": "chat",
@@ -114,7 +123,7 @@
                             "temperature": 0
                         },
                         "placeholder": "Ask me anything about interpreting your dream...",
-                        "initialUserMessage": "Hi, I had this dream last night: [Dream Description]. And I'm feeling [Mood Today]. Can you provide any insights into what my dream may symbolize or mean in relation to my waking life?",
+                        "initialUserMessage": "Hi, I had this dream last night: [what did you dream of last night?]. And I'm feeling [how do you feel today?]. Can you provide any insights into what my dream may symbolize or mean in relation to my waking life?",
                         "initialAssistantMessage": "Sure, I'd be happy to try interpreting your dream based on the details provided. Dreams can tap into our subconscious thoughts, emotions and experiences in fascinating ways. Let's explore what yours could represent..."
                     }
                 ]

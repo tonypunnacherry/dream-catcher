@@ -32,11 +32,6 @@ type PartyRockApp = {
   }[],
 }
 
-type StableDiffusionPrompt = {
-  text: string,
-  weight: number,
-}
-
 type PromptProcessed = {
   prompt: string,
   completed: boolean,

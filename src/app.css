@@ -19,6 +19,17 @@
     @apply h-4 w-2 bg-black rounded-full animate-bounce [animation-delay:-0.5s];
 }
 
+@keyframes smoothin {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
 #bg {
     position: fixed;
     bottom: 0;
@@ -26,6 +37,15 @@
     width: 100%;
     z-index: -999;
     opacity: 0.3;
+}
+
+#logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }
 
 * {
@@ -53,17 +73,155 @@ h1 {
     margin-bottom: 20px;
 }
 
-#dream-description-input .party-widget-header {
+#dream-description-input .party-widget-header, #dream-mood-input .party-widget-header {
     text-align: center;
 }
 
-#dream-description-input textarea {
-    border-radius: 5px;
-    background-color: white;
-    border: 0;
-    padding: 20px;
-    width: 100%;
+#input::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+button[disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+    color: #212121;
+    background-color: #fafafa;
+}
+
+#dream-description-input {
+    float: left;
+    width: 60%;
+    padding-right: 50px;
+    animation: smoothin 0.6s 0.3s forwards;
+    opacity: 0;
+}
+
+#dream-mood-input {
+    float: left;
+    width: 40%;
+    animation: smoothin 0.6s 0.45s forwards;
+    opacity: 0;
+}
+
+#dream-tracker-title {
+    animation: fade 1s forwards;
+    opacity: 0;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.party-widget-emoji-input .party-widget-contents:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.party-widget-emoji-input .emoji {
+    width: 20%;
+    padding: 10px;
+    float: left;
+}
+
+.party-widget-emoji-input .emoji input:hover {
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.party-widget-emoji-input .emoji input.active {
+    box-shadow: 0 8px 16px rgba(255, 0, 255, 0.3);
+    transform: scale(1.2);
+}
+
+button {
+    background-color: #CE93D8;
+    color: #6A1B9A;
+    padding: 8px 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 2px;
     font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    border: 0;
+    transition: all .1s;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    background-color: #9C27B0;
+    color: white;
+}
+
+#button_bar {
+    float: right;
+    position: sticky;
+    top: 10px;
+}
+
+.album-cover {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 0 20px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.album-cover:hover {
+    transform: scale(1.05);
+}
+
+.album-cover:hover .date {
+    background-color: #9C27B0;
+}
+
+.album-cover img {
+    width: 100%;
+}
+
+.album-cover .date {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
+    background-color: #212121;
+    color: white;
+    transition: all 0.3s;
+}
+
+#saveEntry span, #deleteEntry span {
+    position: relative;
+    top: 4px;
+    font-size: 20px;
+    margin-top: -4px;
+    margin-right: 10px;
+}
+
+#saveEntry {
+    margin-right: 10px;
+}
+
+#deleteEntry {
+    background-color: white;
+    color: #f44436;
+}
+
+#deleteEntry:hover {
+    background-color: #f44436;
+    color: white;
+}
+
+.emoji input {
+    border-radius: 50%;
+    width: 100%;
+    transition: all 0.3s;
 }
 
 .party-widget-header {
@@ -71,9 +229,14 @@ h1 {
     font-weight: 600;
     text-shadow: 0 4px 8px rgba(0,0,0,0.2);
     margin-bottom: 10px;
+    margin-top: 20px;
 }
 
-.party-widget-ai {
+.party-footer {
+    margin-top: 100px;
+}
+
+.party-widget-ai, .party-widget-static {
     margin: 20px 0;
     padding: 20px;
     border-radius: 5px;
@@ -84,13 +247,14 @@ h1 {
     white-space: pre-line;
 }
 
-#dream-notes-input textarea, #dream-mood-input textarea {
+textarea {
     border-radius: 5px;
     background-color: white;
     border: 0;
     padding: 20px;
     width: 100%;
     font-size: 16px;
+    height: 200px;
 }
 
 #dream-interpretation-output input {
@@ -100,18 +264,26 @@ h1 {
     border: 0;
 }
 
-#dream-interpretation-output button {
-    background-color: black;
-    color: white;
-    border-radius: 5px;
-    margin-left: 10px;
-    font-weight: bold;
-}
-
 img {
     width: 300px;
 }
 
 a {
     color: white;
+}
+
+nav {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+nav a {
+    padding: 0 20px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: white;
+    text-decoration: underline;
 }

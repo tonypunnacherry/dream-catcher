@@ -6,15 +6,12 @@ export async function POST(requestEvent): Promise<Response> {
 
     let response: String;
 
-    console.info(`> START model(${body.model})`);
-    console.debug(body);
-
     switch (body.model) {
         case "bedrock-anthropic.claude-3.5-sonnet":
-            response = await models.TextClaude(body.prompt, body.temperature, body.topP);
+            response = await models.TextGenerator(body.prompt, body.temperature, body.topP);
             break;
         case "stability.stable-image-ultra-v1:0":
-            response = await models.ImageStableDiffusion(body.prompt);
+            response = await models.ImageGenerator(body.prompt);
             break;
         default:
             return new Response(JSON.stringify({ error: "Invalid model" }), {
@@ -22,13 +19,10 @@ export async function POST(requestEvent): Promise<Response> {
             });
     }
 
-    const output = {
-        response: response,
-    };
+    //response = "";
 
-    console.info(`> FINISH model(${body.model}) resp(${response.substring(0, 25)}...${response.substring(response.length - 25, response.length)})`);
-    return new Response(JSON.stringify(output), {
-        status: 200
-    })
+    const output = { response };
+
+    return new Response(JSON.stringify(output), { status: 200 })
 }
 

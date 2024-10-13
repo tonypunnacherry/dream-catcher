@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-  import { AppState } from "$lib/stores/appv2.svelte";
+  import { AppState } from "$lib/stores/app.svelte";
   
   export function identifyPlaceholders(prompt: string): string[] {
     const regex = /\[(.*?)\]/g;

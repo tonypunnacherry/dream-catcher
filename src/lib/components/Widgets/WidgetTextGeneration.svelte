@@ -1,7 +1,7 @@
 <script lang="ts">
   import LoadingDots from "../UI/LoadingDots.svelte";
 
-  import { AppState } from '$lib/stores/appv2.svelte'; 
+  import { AppState } from '$lib/stores/app.svelte'; 
   import { identifyPlaceholders, prepareGeneratingPlaceholder, processDependentValues, processPlaceholders } from '$lib/utils/prompts.svelte';
 	import TypewriterText from "../UI/TypewriterText.svelte";
 
@@ -42,7 +42,7 @@
 
     valuesChanged = !(JSON.stringify(dependentValues) === JSON.stringify(rememberValues));
     
-    if (valuesValid && valuesChanged) {
+    if (valuesValid && valuesChanged && $AppState.readyToGenerate) {
       callBedrock();
     }
   }
@@ -100,9 +100,7 @@
   </div>
   <div class="party-widget-contents">
     {#if output}
-      <TypewriterText input={output} />
-    {:else}
-      <span class="party-widget-placeholder">{@html placeholderText}</span>
+      {output}
     {/if}
   </div>
 </div>

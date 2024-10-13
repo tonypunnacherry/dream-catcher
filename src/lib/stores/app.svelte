@@ -7,7 +7,7 @@
   const appId: string = definition.result.data.appId;
   const appUrl: string = `https://partyrock.aws/u/${appAuthor}/${appId}/${appTitle.trim().replaceAll(' ','-')}`;
 
-  const data: PartyRockApp = {
+  const data = {
     appDetails: {
       title: appTitle,
       author: appAuthor,
@@ -16,7 +16,9 @@
     },
     widgets: [
       ...definition.result.data.definition.widgets
-    ]
+    ],
+    readyToGenerate: false,
+    album: []
   }
 
   function createAppState() {
