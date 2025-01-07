@@ -1,5 +1,7 @@
 # Dream Catcher
 
+AI-based application that analyzes your dreams and automatically builds you a dream journal. Journal will contain your own dream, notes, and AI-generated analysis.
+
 ## Credits: 
 
 Utilized [GenStack](https://genstack.ssennett.net/) to convert Party Rock application into a full stack Svelte application.
